@@ -1,12 +1,25 @@
 package com.example.demo.Entity;
-
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Table(name = "Pod")
 public class Pod {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "podID")
     private int podID;
+    @Column(name = "podTitle")
     private String podTitle;
-    private Artist artist;
+
+    @ManyToMany(mappedBy = "musicList", cascade = CascadeType.ALL)
+    @JoinColumn(name = "artistID")
+    private List<Artist> artistList = new ArrayList<>();
+
     private Genres genres;
+
     private Album album;
     private Date releaseDate;
 
