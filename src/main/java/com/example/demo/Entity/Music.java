@@ -1,28 +1,33 @@
 package com.example.demo.Entity;
 
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 
 @Entity
 @Table (name = "Music")
 public class Music {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "musicID")
     private int musicID;
     @Column(name = "musicTitle")
     private String musicTitle;
 
-    @ManyToMany(mappedBy = "musicList", cascade = CascadeType.ALL)
-    @JoinColumn(name = "artistID")
-    private List<Artist> artistList = new ArrayList<>();
-
+    @ManyToOne
+    @JoinColumn(name = "ID")
+    private Artist artist;
+    @ManyToOne
+    @JoinColumn(name = "gengreName")
     private Genres genres;
-
+    @ManyToOne
+    @JoinColumn(name = "gengreName")
     private Album album;
-    @Column(name = "releaseDate")
+    @Column
     private Date releaseDate;
 
 

@@ -1,6 +1,7 @@
 package com.example.demo.Entity;
 
 import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,9 @@ public class Artist {
     @Column(name = "artistName")
     private String artistName;
     @Column(name = "artistFollowers")
+
+
+
     private int artistFollowers;
 
     @ManyToMany(mappedBy = "artistList", cascade = CascadeType.ALL)

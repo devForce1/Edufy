@@ -1,5 +1,6 @@
 package com.example.demo.Entity;
 
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,7 +8,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "video")
+
 public class Video {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int videoID;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
