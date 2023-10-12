@@ -1,16 +1,25 @@
 package com.example.demo.Entity;
-import javax.persistence.*;
-import java.util.Date;
-@Entity
 
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+
+@Entity
+@Table (name = "Music")
 public class Music {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = "musicID")
     private int musicID;
-    @Column
+    @Column(name = "musicTitle")
     private String musicTitle;
+
     @ManyToOne
-    @JoinColumn(name = "artistName")
+    @JoinColumn(name = "ID")
     private Artist artist;
     @ManyToOne
     @JoinColumn(name = "gengreName")
@@ -20,6 +29,7 @@ public class Music {
     private Album album;
     @Column
     private Date releaseDate;
+
 
     public Music() {
     }

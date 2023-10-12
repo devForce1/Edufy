@@ -2,15 +2,28 @@ package com.example.demo.Entity;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 @Entity
+@Table(name = "Artist")
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "artistID")
     private int artistID;
-    @Column
+    @Column(name = "artistName")
     private String artistName;
-    @Column
+    @Column(name = "artistFollowers")
+
+
+
     private int artistFollowers;
+
+    @ManyToMany(mappedBy = "artistList", cascade = CascadeType.ALL)
+    @JoinColumn(name = "musicID")
+    private List<Music> musicList = new ArrayList<>();
 
     public Artist() {
     }
