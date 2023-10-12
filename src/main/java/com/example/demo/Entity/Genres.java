@@ -8,7 +8,7 @@ public class Genres {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int genresID;
-    @Column
+    @Column (name = "genre")
     private String genreName;
 
     public Genres() {

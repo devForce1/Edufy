@@ -14,15 +14,18 @@ public class Pod {
     private int podID;
     @Column(name = "podTitle")
     private String podTitle;
-
-    @ManyToMany(mappedBy = "musicList", cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "artistID")
-    private List<Artist> artistList = new ArrayList<>();
-
+    private Artist artist;
+    @ManyToOne
+    @JoinColumn(name = "genresID")
     private Genres genres;
-
+    @ManyToOne
+    @JoinColumn(name = "albumID")
     private Album album;
+    @Column(name = "releaseDate")
     private Date releaseDate;
+
 
     public Pod(int podID, String podTitle, Artist artist, Genres genres, Album album, Date releaseDate) {
         this.podID = podID;
