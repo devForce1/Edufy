@@ -1,9 +1,6 @@
 package com.example.demo.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 @Entity
 public class User {
@@ -13,7 +10,9 @@ public class User {
     private String userName;
     private String userEmail;
     private String userSubscription;
-    private List playHistory;
+
+
+    //private List playHistory;
 
     public User() {
     }
@@ -23,7 +22,7 @@ public class User {
         this.userName = userName;
         this.userEmail = userEmail;
         this.userSubscription = userSubscription;
-        this.playHistory = playHistory;
+       // this.playHistory = playHistory;
     }
 
     public int getUserID() {
@@ -58,11 +57,7 @@ public class User {
         this.userSubscription = userSubscription;
     }
 
-    public List getPlayHistory() {
-        return playHistory;
-    }
 
-    public void setPlayHistory(List playHistory) {
-        this.playHistory = playHistory;
-    }
+
+
 }

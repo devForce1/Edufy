@@ -1,25 +1,26 @@
 package com.example.demo.Entity;
 
 import javax.persistence.*;
-import java.time.Year;
-import java.util.Date;
+
+
 @Entity
 public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "albumID")
     private int albumID;
-    @Column
+    @Column(name = "albumTitle")
     private String albumTitle;
     @ManyToOne
-    @JoinColumn(name = "artistName")
+    @JoinColumn(name = "artistID")
     private Artist artist;
-    @Column
-    private Year releaseYear;
+    @Column(name = "releaseYear")
+    private int releaseYear;
 
     public Album() {
     }
 
-    public Album(int albumID, String albumTitle, Artist artist, Year releaseYear) {
+    public Album(int albumID, String albumTitle, Artist artist, int releaseYear) {
         this.albumID = albumID;
         this.albumTitle = albumTitle;
         this.artist = artist;
@@ -50,11 +51,11 @@ public class Album {
         this.artist = artist;
     }
 
-    public Year getReleaseYear() {
+    public int getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(Year releaseYear) {
+    public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
     }
 }
