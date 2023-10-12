@@ -1,13 +1,24 @@
 package com.example.demo.Entity;
-
+import javax.persistence.*;
 import java.util.Date;
+@Entity
 
 public class Music {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int musicID;
+    @Column
     private String musicTitle;
+    @ManyToOne
+    @JoinColumn(name = "artistName")
     private Artist artist;
+    @ManyToOne
+    @JoinColumn(name = "gengreName")
     private Genres genres;
+    @ManyToOne
+    @JoinColumn(name = "gengreName")
     private Album album;
+    @Column
     private Date releaseDate;
 
     public Music() {

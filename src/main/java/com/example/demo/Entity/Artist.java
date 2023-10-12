@@ -1,8 +1,15 @@
 package com.example.demo.Entity;
 
+import javax.persistence.*;
+
+@Entity
 public class Artist {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int artistID;
+    @Column
     private String artistName;
+    @Column
     private int artistFollowers;
 
     public Artist() {

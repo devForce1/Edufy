@@ -1,15 +1,22 @@
 package com.example.demo.Entity;
 
+import javax.persistence.*;
+
+@Entity
+
 public class Genres {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int genresID;
-    private String genres;
+    @Column
+    private String genreName;
 
     public Genres() {
     }
 
     public Genres(int genresID, String genres) {
         this.genresID = genresID;
-        this.genres = genres;
+        this.genreName = genres;
     }
 
     public int getGenresID() {
@@ -21,10 +28,10 @@ public class Genres {
     }
 
     public String getGenres() {
-        return genres;
+        return genreName;
     }
 
     public void setGenres(String genres) {
-        this.genres = genres;
+        this.genreName = genres;
     }
 }

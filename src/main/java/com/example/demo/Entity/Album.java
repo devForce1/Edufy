@@ -1,12 +1,19 @@
 package com.example.demo.Entity;
 
+import javax.persistence.*;
 import java.time.Year;
 import java.util.Date;
-
+@Entity
 public class Album {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int albumID;
+    @Column
     private String albumTitle;
+    @ManyToOne
+    @JoinColumn(name = "artistName")
     private Artist artist;
+    @Column
     private Year releaseYear;
 
     public Album() {
