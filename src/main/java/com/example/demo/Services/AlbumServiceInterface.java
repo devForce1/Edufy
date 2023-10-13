@@ -8,4 +8,5 @@ public interface AlbumServiceInterface {
 
     List<Album>findAlbumsByArtistName(String artistName);
 
+    List<Album>findAllAlbums();
 }

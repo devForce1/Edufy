@@ -24,14 +24,6 @@ private MusicRepository musicRepository;
         return musicRepository.findMusicByAlbumOrderByMusicTitle(album);
     }
 
-
-
-=======
-
-@Service
-public class MusicService implements MusicServiceInterface {
-    @Autowired
-    private MusicRepository musicRepository;
     @Autowired
     private ArtistRepository artistRepository;
 
@@ -41,5 +33,4 @@ public class MusicService implements MusicServiceInterface {
         List<Music> getAllMusic = musicRepository.findMusicByArtist(artist);
         return getAllMusic;
     }
-
 }

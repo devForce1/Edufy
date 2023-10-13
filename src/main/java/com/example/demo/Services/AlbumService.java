@@ -13,14 +13,17 @@ public class AlbumService implements AlbumServiceInterface {
 
     @Override
     public List<Album> findAlbumsByArtistName(String artistName) {
-        List<Album> albums = albumRepository.findAlbumsByArtistName(artistName);
-        return albums;
+        System.out.println(artistName);
+        return albumRepository.findAlbumsByArtistName(artistName);
+    }
+
+    @Override
+    public List<Album> findAllAlbums() {
+        return albumRepository.findAll();
     }
 
     @Override
     public Album findAlbumByTitle(String albumTitle) {
-        Album album = albumRepository.findAlbumByAlbumTitleContainsIgnoreCase(albumTitle);
-    return album;
-
+    return albumRepository.findAlbumByAlbumTitleContainsIgnoreCase(albumTitle);
     }
 }
