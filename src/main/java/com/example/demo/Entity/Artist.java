@@ -16,15 +16,12 @@ public class Artist {
     @Column(name = "artistName")
     private String artistName;
     @Column(name = "artistFollowers")
-
-
-
     private int artistFollowers;
 
-    @ManyToMany(mappedBy = "artistList", cascade = CascadeType.ALL)
+    /*@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "musicID")
-    private List<Music> musicList = new ArrayList<>();
-
+    private Music music;
+*/
     public Artist() {
     }
 

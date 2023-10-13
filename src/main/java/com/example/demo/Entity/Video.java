@@ -12,18 +12,24 @@ import java.util.List;
 public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "videoID")
     private int videoID;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "podID")
 
+    @Column(name ="videoTitle")
     private String videoTitle;
-    @ManyToMany(mappedBy = "musicList", cascade = CascadeType.ALL)
+
+    @ManyToOne
     @JoinColumn(name = "artistID")
-    private List<Artist> artistList = new ArrayList<>();
-    private Album album;
+    private Artist artist;
+    @ManyToOne
+    @JoinColumn(name = "genresID")
     private Genres genres;
+    @ManyToOne
+    @JoinColumn(name = "albumID")
+    private Album album;
+    @Column(name = "releaseDate")
     private Date releaseDate;
+
 
     public Video() {
     }
