@@ -15,15 +15,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MusicService implements MusicServiceInterface{
-@Autowired
-private MusicRepository musicRepository;
-
-    @Override
-    public List<Music> listAllMusicForAlbum(Album album) {
-        return musicRepository.findMusicByAlbumOrderByMusicTitle(album);
-    }
-
+public class MusicService implements MusicServiceInterface {
+    @Autowired
+    private MusicRepository musicRepository;
     @Autowired
     private ArtistRepository artistRepository;
 
@@ -33,4 +27,9 @@ private MusicRepository musicRepository;
         List<Music> getAllMusic = musicRepository.findMusicByArtist(artist);
         return getAllMusic;
     }
+    @Override
+    public List<Music> listAllMusicForAlbum(Album album) {
+        return musicRepository.findMusicByAlbumOrderByMusicTitle(album);
+    }
+
 }
